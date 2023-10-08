@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: hsl(235, 21%, 11%);
+    background-image: url(images/bg-desktop-dark.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100% auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    font-family: 'Josefin Sans', sans-serif;
+    height: 100vh;
+    
+}
+.backimg{
+    width: 100%;
+}
+.container1{
+    
+    width: 500px;
+    margin-top: 20px;
+}
+.logoes{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 23px;
+}
+
+
+h1{
+    color: white;
+}
+.drag {
+    margin-bottom: 10px;
+}
+
+
+.container2{
+    width: 100%;
+    background-color: hsl(237, 14%, 26%);
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.container2 input{
+    width:80%;  
+}
+.container3{
+    width: 100%;
+    background-color: hsl(237, 14%, 26%);
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+}
+.data{
+    display: flex;
+   justify-content: space-between;
+   width: 100%;
+   align-items: center; 
+   height: 40px;
+   border-radius: 5px;
+   font-size: 1em;
+   color: white;
+   border-bottom: 2px solid hsl(240, 3%, 33%);
+}
+
+.img1{
+    display: flex;
+    margin-left: 8px;
+    border-radius: 50%;
+    padding: 4px 2px 3px 2px;
+    border: 2px solid white;
+}
+
+
+.img2{
+    margin-left: 3px;
+    margin-right: 8px;
+
+}
+.container1 .cross{
+    margin-left: 3px;
+    margin-right: 8px;
+}
+.check{
+    display: flex;
+    margin-left: 8px;
+    border-radius: 50%;
+    padding: 4px 2px 3px 2px;
+    border: 2px solid white;
+}
+.check.box{
+    background: transparent;
+    background-image: linear-gradient(to right,hsl(192, 100%, 67%),hsl(280, 87%, 65%));
+    width: 20px; 
+}
+.create{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.create::placeholder{
+    font-family: 'Josefin Sans', sans-serif;
+    color: hsl(233, 14%, 35%);
+}
+input{
+   display: flex;
+   justify-content: center;
+   align-items: center; 
+   height: 40px;
+   background-color: transparent;
+   border: transparent;
+   border-radius: 5px;
+   outline: none;
+   font-size: 1.2em;
+   color: white;
+}
+
+
+.container4{
+    width: 100%;
+    display: flex;
+    color: hsl(233, 14%, 35%);
+    justify-content: space-between;
+    background-color: hsl(237, 14%, 26%);
+    height: 40px;
+    align-items: center;
+    padding: 8px;
+}
+.toogle{
+    display: flex;
+}
+.toogle p{
+    margin-right: 10px;
+    font-weight: 900;
+}
+.itemleft{
+    display: flex;
+}
+.it,.all,.active,.complete{
+    margin-left: 3px;
+}
+
+.itemleft:hover,.clear:hover,.all:hover,.active:hover,.complete:hover,.drag:hover{
+    color: rgba(34, 27, 27, 0.564);
+    
+}
+
+.drag{
+    text-align: center;
+    color: hsl(233, 14%, 35%);
+    margin-top: 30px;
+}
+
+
+
