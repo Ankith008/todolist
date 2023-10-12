@@ -93,11 +93,9 @@ createinput.addEventListener("keyup", function (event) {
     }
 });
 
-
-window.addEventListener("load", function () {
-    const loaddata = JSON.parse(this.localStorage.getItem("all")) || []
-    renderoncontainer(loaddata);
-});
+//render data from local storage
+const loaddata = JSON.parse(this.localStorage.getItem("all")) || []
+renderoncontainer(loaddata);
 
 function renderoncontainer(data) {
     const container3 = document.querySelector(".container3");
