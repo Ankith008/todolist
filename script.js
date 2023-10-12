@@ -6,7 +6,7 @@ let container3 = document.getElementsByClassName("container3")[0];
 let container4 = document.getElementsByClassName("container4")[0];
 drag = document.getElementsByClassName("drag")[0];
 let body = document.querySelector("body");
-
+let img1 = document.querySelector(".img1");
 
 //toggleing check
 check.addEventListener("click", function () {
@@ -26,7 +26,7 @@ function toggle() {
         container3.style.backgroundColor = "white";
         container4.style.backgroundColor = "white";
         check.style.border = "2px solid black";
-     
+        clickedimg.style.border = "2px solid black";
         create.style.color = "black";
         body.style.backgroundColor = "white";
         body.style.backgroundImage = "url(images/bg-desktop-light.jpg)";
@@ -55,30 +55,30 @@ createinput.addEventListener("keyup", function (event) {
     if (event.key === "Enter") {
         const value = createinput.value;
         if (value !== "") {
+            let unid = Math.floor(Math.random()*1000);
             const exitdata = JSON.parse(localStorage.getItem("all")) || [];
-            exitdata.push(value);
+            exitdata.push({"id":unid,"task":value,"iscomplete":false});
             localStorage.setItem("all", JSON.stringify(exitdata));
-
-            const activedata = JSON.parse(localStorage.getItem("active")) || [];
-            activedata.push(value);
-            localStorage.setItem("active", JSON.stringify(activedata));
-
             createinput.value = "";
-
-            
-                        
+  
             //storaging data into container3
             
             let newdiv = document.createElement("div");
             newdiv.classList.add("data")
 
-            let img1add = document.createElement("img");
-            img1add.classList.add("img1")
-            img1add.src = "images/icon-check.svg";
-
             let paraadd = document.createElement("p");
             paraadd.classList.add("para")
             paraadd.textContent = value;
+
+            let img1add = document.createElement("img");
+            img1add.classList.add("img1")
+            img1add.src = "images/icon-check.svg";
+            img1add.addEventListener("click", function () {
+                img1add.classList.toggle("image");
+                paraadd.classList.toggle("strike");
+                
+            });
+            
                 
             let img2add = document.createElement("img");
             img2add.classList.add("img2")
@@ -108,43 +108,33 @@ function renderoncontainer(data) {
         newdiv.classList.add("data");
 
         let img1ren = document.createElement("img");
-        img1ren.classList.add("img1")
-        img1ren.src = "images/icon-check.svg";
-        
+        img1ren.classList.add("img1");
 
         let pararen = document.createElement("p");
         pararen.classList.add("para")
-        pararen.textContent = element;
+        pararen.textContent = element.task;
+
+        var newnum=true
+        img1ren.src = "images/icon-check.svg";
+        img1ren.addEventListener("click", function () {
+            img1ren.classList.toggle("image"); 
+            pararen.classList.toggle("strike");
+            element.iscomplete = !element.iscomplete;
+            localStorage.setItem("all", JSON.stringify(data));
+            
+        });
+        
         
         let img2ren = document.createElement("img");
         img2ren.classList.add("img2")
         img2ren.src = "images/icon-cross.svg";
+
+        
 
         newdiv.appendChild(img1ren);
         newdiv.appendChild(pararen);
         newdiv.appendChild(img2ren);
         
         container3.appendChild(newdiv);
-    });
+    });
 }
-
-
-// toggling the img1
-var img1 = document.querySelector(".img1");
-
-img1.addEventListener("click", function () {
-    togglebox();
-});
-function togglebox() {
-    img1.classList.toggle("boxe");   
-    togglingbackground();
-}
-function togglingbackground() {
-    if (img1.classList.contains("boxe")) {
-        img1.style.backgroundImage = "linear-gradient(to right,hsl(192, 100%, 67%),hsl(280, 87%, 65%))";
-       
-    } else {
-        img1.style.backgroundImage = "none";
-    }
-}
-
